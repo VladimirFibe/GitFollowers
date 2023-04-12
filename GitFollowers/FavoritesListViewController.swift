@@ -1,10 +1,9 @@
 import UIKit
 
-class ViewController: UIViewController {
+final class FavoritesListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
     }
 }
-
