@@ -9,6 +9,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScent)
         window?.rootViewController = createTabbar()
         window?.makeKeyAndVisible()
+        configureNavigationBar()
+    }
+    
+    private func configureNavigationBar() {
+        UINavigationBar.appearance()
     }
     
     private func createSearchNavigationController() -> UINavigationController {
