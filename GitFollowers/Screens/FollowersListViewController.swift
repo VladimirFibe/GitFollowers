@@ -9,6 +9,8 @@ class FollowersListViewController: UIViewController {
         NetworkManager.shared.getFollowers(for: username, page: 1) { followers, error in
             if let followers = followers {
                 followers.forEach { print($0.login)}
+            } else {
+                self.presentGFAlertOnMainThread(title: "Bad Stuff Happend", message: error)
             }
         }
     }
