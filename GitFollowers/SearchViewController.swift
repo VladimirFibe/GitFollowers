@@ -16,6 +16,8 @@ final class SearchViewController: UIViewController {
         configureLogoImageView()
         configureTextField()
         configureButton()
+        let alert = GFAlertViewController(alterTitle: "Alert", message: "Message", buttonTitle: "Ok")
+        present(alert, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,7 +79,6 @@ final class SearchViewController: UIViewController {
 
 extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         pushFollowersListViewController()
         return true
     }
