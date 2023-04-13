@@ -6,6 +6,11 @@ class FollowersListViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        NetworkManager.shared.getFollowers(for: username, page: 1) { followers, error in
+            if let followers = followers {
+                followers.forEach { print($0.login)}
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
