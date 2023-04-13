@@ -16,8 +16,6 @@ final class SearchViewController: UIViewController {
         configureLogoImageView()
         configureTextField()
         configureButton()
-        let alert = GFAlertViewController(alterTitle: "Alert", message: "Message", buttonTitle: "Ok")
-        present(alert, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,7 +30,9 @@ final class SearchViewController: UIViewController {
     
     @objc func pushFollowersListViewController() {
         guard isUsernameEntered else {
-            print("no username")
+            presentGFAlertOnMainThread(
+                title: "Empty Username",
+                message: "Please, enter a username. We need to know who to look for 😀")
             return
         }
         let viewController = FollowersListViewController()

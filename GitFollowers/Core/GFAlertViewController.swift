@@ -1,10 +1,3 @@
-//
-//  GFAlertViewController.swift
-//  GitFollowers
-//
-//  Created by Vladimir on 13.04.2023.
-//
-
 import UIKit
 
 class GFAlertViewController: UIViewController {
@@ -55,7 +48,7 @@ class GFAlertViewController: UIViewController {
     
     private func configureTitleLabel() {
         containerView.addSubview(titleLabel)
-        titleLabel.text = alterTitle
+        titleLabel.text = alterTitle ?? "Something went wrong"
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: padding),
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
@@ -66,9 +59,10 @@ class GFAlertViewController: UIViewController {
     
     private func configureMessageLabel() {
         containerView.addSubview(messageLabel)
-        messageLabel.text = message
+        messageLabel.text           = message ?? "Unable to complete request"
+        messageLabel.numberOfLines  = 4
         NSLayoutConstraint.activate([
-            messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: padding),
+            messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             messageLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             messageLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
         ])
@@ -79,11 +73,11 @@ class GFAlertViewController: UIViewController {
         actionButton.setTitle(buttonTitle ?? "Ok", for: .normal)
         actionButton.addTarget(self, action: #selector(dismissCGAlert), for: .primaryActionTriggered)
         NSLayoutConstraint.activate([
-            actionButton.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: padding),
+            actionButton.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 12),
             actionButton.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             actionButton.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -padding),
-            actionButton.heightAnchor.constraint(equalToConstant: 50)
+            actionButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
     
