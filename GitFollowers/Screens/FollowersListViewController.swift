@@ -10,7 +10,7 @@ class FollowersListViewController: UIViewController {
             if let followers = followers {
                 followers.forEach { print($0.login)}
             } else {
-                self.presentGFAlertOnMainThread(title: "Bad Stuff Happend", message: error)
+                self.presentGFAlertOnMainThread(title: "Bad Stuff Happend", message: error?.rawValue)
             }
         }
     }
