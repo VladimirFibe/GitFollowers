@@ -1,14 +1,19 @@
 import UIKit
 
 class FollowersListViewController: UIViewController {
+    enum Section {
+        case main
+    }
     var username: String!
+    var followers: [Follower] = []
     var collectionView: UICollectionView!
-    
+    var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
         configureCollectionView()
         getFollowers()
+        configureDataSource()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,9 +48,30 @@ class FollowersListViewController: UIViewController {
     private func getFollowers() {
         NetworkManager.shared.getFollowers(for: username, page: 1) { result in
             switch result {
-            case .success(let followers): followers.forEach { print($0.login)}
+            case .success(let followers):
+                DispatchQueue.main.async {
+                    self.followers = followers
+                    self.updateData()
+                }
             case .failure(let error): self.presentGFAlertOnMainThread(title: "Bad Stuff Happend", message: error.rawValue)
             }
         }
+    }
+    
+    private func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: collectionView, cellProvider: { collectionView, indexPath, follower in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCollectionViewCell.identifier, for: indexPath) as? FollowerCollectionViewCell else {
+                return FollowerCollectionViewCell()
+            }
+            cell.configure(with: follower)
+            return cell
+        })
+    }
+    
+    private func updateData() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(followers)
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
 }
