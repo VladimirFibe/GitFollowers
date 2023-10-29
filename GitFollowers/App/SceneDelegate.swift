@@ -4,22 +4,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScent = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScent)
+    func scene(
+        _ scene: UIScene,
+        willConnectTo session: UISceneSession,
+        options connectionOptions: UIScene.ConnectionOptions
+    ) {
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
         window?.rootViewController = createTabbar()
         window?.makeKeyAndVisible()
         configureNavigationBar()
     }
     
-    private func configureNavigationBar() {
-        UINavigationBar.appearance()
-    }
-    
+    private func configureNavigationBar() {}
+
     private func createSearchNavigationController() -> UINavigationController {
         let search = SearchViewController()
         search.title = "Search"
         search.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+
         return UINavigationController(rootViewController: search)
     }
     
@@ -27,6 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let favorite = FavoritesListViewController()
         favorite.title = "Favorite"
         favorite.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+
         return UINavigationController(rootViewController: favorite)
     }
     
@@ -35,6 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let search = createSearchNavigationController()
         let favorite = createFavoritesNavigationController()
         tabbar.viewControllers = [search, favorite]
+
         return tabbar
     }
 }
