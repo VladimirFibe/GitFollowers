@@ -1,8 +1,8 @@
 import Foundation
 
 final class NetworkManager {
-    static let shared = NetworkManager()
-    let baseURL = "https://api.github.com/users"
+    static let shared   = NetworkManager()
+    let baseURL         = "https://api.github.com/users"
     private init() {}
     
     func getFollowers(
@@ -11,7 +11,6 @@ final class NetworkManager {
         completion: @escaping (Result<[Follower], GFError>) -> Void
     ) {
         let endpoint = baseURL + "/\(username)/followers?per_page=100&page=\(page)"
-        print(endpoint)
         guard let url = URL(string: endpoint) else {
             completion(.failure(.invalidUsername))
             return
@@ -29,10 +28,12 @@ final class NetworkManager {
                 completion(.failure(.invalidResponse))
                 return
             }
-            guard let data = data else {
+
+            guard let data else {
                 completion(.failure(.invalidData))
                 return
             }
+
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase

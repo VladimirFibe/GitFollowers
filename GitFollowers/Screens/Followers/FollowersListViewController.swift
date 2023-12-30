@@ -4,10 +4,12 @@ class FollowersListViewController: UIViewController {
     enum Section {
         case main
     }
+
     var username: String!
     var followers: [Follower] = []
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
@@ -27,9 +29,15 @@ class FollowersListViewController: UIViewController {
     }
     
     private func configureCollectionView() {
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createThreeColumnFlowLayout())
+        collectionView = UICollectionView(
+            frame: view.bounds,
+            collectionViewLayout: createThreeColumnFlowLayout()
+        )
         view.addSubview(collectionView)
-        collectionView.register(FollowerCollectionViewCell.self, forCellWithReuseIdentifier: FollowerCollectionViewCell.identifier)
+        collectionView.register(
+            FollowerCollectionViewCell.self,
+            forCellWithReuseIdentifier: FollowerCollectionViewCell.identifier
+        )
     }
     
     func createThreeColumnFlowLayout() -> UICollectionViewFlowLayout {
@@ -58,13 +66,19 @@ class FollowersListViewController: UIViewController {
     }
     
     private func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: collectionView, cellProvider: { collectionView, indexPath, follower in
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCollectionViewCell.identifier, for: indexPath) as? FollowerCollectionViewCell else {
+        dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: collectionView) {
+            collectionView,
+            indexPath,
+            follower in
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: FollowerCollectionViewCell.identifier,
+                for: indexPath
+            ) as? FollowerCollectionViewCell else {
                 return FollowerCollectionViewCell()
             }
             cell.configure(with: follower)
             return cell
-        })
+        }
     }
     
     private func updateData() {

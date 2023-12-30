@@ -66,6 +66,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02D0196E2B406593009C7185 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				2744165729E5719800919B18 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		02D0196F2B40659F009C7185 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				2744165929E571D700919B18 /* FavoritesListViewController.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		2744163729E5687D00919B18 = {
 			isa = PBXGroup;
 			children = (
@@ -109,8 +125,8 @@
 		278BAF1429E7BC3F00B6F7D2 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				2744165729E5719800919B18 /* SearchViewController.swift */,
-				2744165929E571D700919B18 /* FavoritesListViewController.swift */,
+				02D0196E2B406593009C7185 /* Search */,
+				02D0196F2B40659F009C7185 /* Favorites */,
 				278BAF2729E8608E00B6F7D2 /* Followers */,
 			);
 			path = Screens;
