@@ -10,6 +10,8 @@
 		023AB5062B40EC06001B6F67 /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AB5052B40EC06001B6F67 /* GFEmptyStateView.swift */; };
 		0265DF332B414E26000FE93A /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0265DF322B414E26000FE93A /* UserInfoViewController.swift */; };
 		0265DF362B419E21000FE93A /* GFSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0265DF352B419E21000FE93A /* GFSecondaryTitleLabel.swift */; };
+		0265DF382B41A509000FE93A /* UserInfoHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0265DF372B41A509000FE93A /* UserInfoHeaderViewController.swift */; };
+		0265DF3A2B41B175000FE93A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0265DF392B41B175000FE93A /* Constants.swift */; };
 		02D019712B40C447009C7185 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D019702B40C447009C7185 /* UIHelper.swift */; };
 		2744164429E5687D00919B18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744164329E5687D00919B18 /* AppDelegate.swift */; };
 		2744164629E5687D00919B18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744164529E5687D00919B18 /* SceneDelegate.swift */; };
@@ -37,6 +39,8 @@
 		023AB5052B40EC06001B6F67 /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
 		0265DF322B414E26000FE93A /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		0265DF352B419E21000FE93A /* GFSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFSecondaryTitleLabel.swift; sourceTree = "<group>"; };
+		0265DF372B41A509000FE93A /* UserInfoHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHeaderViewController.swift; sourceTree = "<group>"; };
+		0265DF392B41B175000FE93A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		02D019702B40C447009C7185 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		2744164029E5687D00919B18 /* GitFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2744164329E5687D00919B18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				0265DF322B414E26000FE93A /* UserInfoViewController.swift */,
+				0265DF372B41A509000FE93A /* UserInfoHeaderViewController.swift */,
 			);
 			path = UserInfo;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 			children = (
 				278BAF2529E82CEE00B6F7D2 /* GFError.swift */,
 				02D019702B40C447009C7185 /* UIHelper.swift */,
+				0265DF392B41B175000FE93A /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 				278BAF2B29E8615C00B6F7D2 /* GFAvatarImageView.swift in Sources */,
 				278BAF2929E860BC00B6F7D2 /* FollowerCollectionViewCell.swift in Sources */,
 				278BAF1C29E7C6D800B6F7D2 /* Follower.swift in Sources */,
+				0265DF382B41A509000FE93A /* UserInfoHeaderViewController.swift in Sources */,
 				2744165829E5719800919B18 /* SearchViewController.swift in Sources */,
 				2744164629E5687D00919B18 /* SceneDelegate.swift in Sources */,
 				0265DF362B419E21000FE93A /* GFSecondaryTitleLabel.swift in Sources */,
@@ -319,6 +326,7 @@
 				278BAF2129E7D97700B6F7D2 /* NetworkManager.swift in Sources */,
 				278BAF1129E78F5B00B6F7D2 /* GFAlertViewController.swift in Sources */,
 				278BAF0729E7578A00B6F7D2 /* GFTextField.swift in Sources */,
+				0265DF3A2B41B175000FE93A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
