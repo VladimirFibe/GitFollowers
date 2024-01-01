@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		023AB5062B40EC06001B6F67 /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AB5052B40EC06001B6F67 /* GFEmptyStateView.swift */; };
+		0249D38A2B42A38D00285CC4 /* GFItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249D3892B42A38D00285CC4 /* GFItemInfoView.swift */; };
 		0265DF332B414E26000FE93A /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0265DF322B414E26000FE93A /* UserInfoViewController.swift */; };
 		0265DF362B419E21000FE93A /* GFSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0265DF352B419E21000FE93A /* GFSecondaryTitleLabel.swift */; };
 		0265DF382B41A509000FE93A /* UserInfoHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0265DF372B41A509000FE93A /* UserInfoHeaderViewController.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		023AB5052B40EC06001B6F67 /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
+		0249D3892B42A38D00285CC4 /* GFItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoView.swift; sourceTree = "<group>"; };
 		0265DF322B414E26000FE93A /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		0265DF352B419E21000FE93A /* GFSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFSecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		0265DF372B41A509000FE93A /* UserInfoHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHeaderViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				0265DF322B414E26000FE93A /* UserInfoViewController.swift */,
 				0265DF372B41A509000FE93A /* UserInfoHeaderViewController.swift */,
+				0249D3892B42A38D00285CC4 /* GFItemInfoView.swift */,
 			);
 			path = UserInfo;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				02D019712B40C447009C7185 /* UIHelper.swift in Sources */,
 				278BAF2129E7D97700B6F7D2 /* NetworkManager.swift in Sources */,
 				278BAF1129E78F5B00B6F7D2 /* GFAlertViewController.swift in Sources */,
+				0249D38A2B42A38D00285CC4 /* GFItemInfoView.swift in Sources */,
 				278BAF0729E7578A00B6F7D2 /* GFTextField.swift in Sources */,
 				0265DF3A2B41B175000FE93A /* Constants.swift in Sources */,
 			);
