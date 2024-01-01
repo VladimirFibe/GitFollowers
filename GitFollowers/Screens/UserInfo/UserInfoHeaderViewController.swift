@@ -8,7 +8,7 @@ final class UserInfoHeaderViewController: UIViewController {
     private let locationLabel       = GFSecondaryTitleLabel(fontSize: 18)
     private let bioLabel            = GFBodyLabel(textAlignment: .left)
 
-    var user: User!
+    var user: User
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,8 +17,8 @@ final class UserInfoHeaderViewController: UIViewController {
     }
 
     init(user: User) {
-        super.init(nibName: nil, bundle: nil)
         self.user = user
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -89,7 +89,8 @@ final class UserInfoHeaderViewController: UIViewController {
 
             bioLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
             bioLabel.trailingAnchor.constraint(equalTo: usernameLabel.trailingAnchor),
-            bioLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor)
+            bioLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor),
+            bioLabel.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
 }
