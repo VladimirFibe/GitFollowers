@@ -7,7 +7,7 @@ class GFItemInfoViewController: UIViewController {
     public let actionButton = GFButton()
 
     let user: User
-
+    weak var delegate: UserInfoDelegate?
     init(user: User) {
         self.user = user
         super.init(nibName: nil, bundle: nil)
@@ -23,11 +23,14 @@ class GFItemInfoViewController: UIViewController {
         setupConstraints()
     }
 
+    @objc func actionHandler() {}
+
     func setupViews() {
         view.layer.cornerRadius = 18
         view.backgroundColor    = .secondarySystemBackground
         view.addSubview(stackView)
         view.addSubview(actionButton)
+        actionButton.addTarget(self, action: #selector(actionHandler), for: .primaryActionTriggered)
         stackView.addArrangedSubview(leftItem)
         stackView.addArrangedSubview(rightItem)
         stackView.translatesAutoresizingMaskIntoConstraints = false

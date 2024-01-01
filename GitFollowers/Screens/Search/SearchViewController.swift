@@ -39,7 +39,6 @@ final class SearchViewController: UIViewController {
         }
         let viewController = FollowersListViewController()
         viewController.username = usernameTextField.text
-        viewController.title = usernameTextField.text
         usernameTextField.text = ""
         navigationController?.pushViewController(viewController, animated: true)
     }

@@ -7,4 +7,8 @@ final class UserReposViewController: GFItemInfoViewController {
         rightItem.configure(with: .gists, value: user.publicGists)
         actionButton.configure(with: "GitHub Profile", backgroundColor: .systemPurple)
     }
+
+    override func actionHandler() {
+        delegate?.didTapGitHubProfile(for: user)
+    }
 }

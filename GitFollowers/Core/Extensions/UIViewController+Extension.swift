@@ -1,7 +1,17 @@
 import UIKit
+import SafariServices
 
 fileprivate var containerView: UIView!
 extension UIViewController {
+    func presentSafari(with url: String) {
+        guard let url = URL(string: url) else {
+            presentGFAlertOnMainThread(title: "Invalid URL")
+            return
+        }
+        let controller = SFSafariViewController(url: url)
+        controller.preferredControlTintColor = .accent
+        present(controller, animated: true)
+    }
     func presentGFAlertOnMainThread(
         title: String? = nil,
         message: String? = nil,

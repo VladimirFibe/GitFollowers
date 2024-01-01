@@ -7,4 +7,8 @@ final class UserFollowersViewController: GFItemInfoViewController {
         rightItem.configure(with: .following, value: user.following)
         actionButton.configure(with: "Get Followers", backgroundColor: .systemGreen)
     }
+
+    override func actionHandler() {
+        delegate?.didTapGetFollowers(for: user)
+    }
 }
