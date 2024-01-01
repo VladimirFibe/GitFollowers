@@ -3,16 +3,34 @@ import UIKit
 final class UserInfoViewController: UIViewController {
 
     private let headerView = UIView()
+    private let middleView = UIView()
+    private let bottomView = UIView()
 
     var username: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonHandler))
+        setupNavigationBar()
+        setupViews()
+        getUserInfo()
+    }
+
+    private func setupNavigationBar() {
+        let doneButton = UIBarButtonItem(
+            barButtonSystemItem: .done,
+            target: self,
+            action: #selector(doneButtonHandler)
+        )
         navigationItem.rightBarButtonItem = doneButton
         navigationItem.title = username
-        setupViews()
+    }
+
+    @objc func doneButtonHandler() {
+        dismiss(animated: true)
+    }
+
+    private func getUserInfo() {
         NetworkManager.shared.getUserInfo(for: username) { result in
             switch result {
             case .success(let user):
@@ -20,13 +38,12 @@ final class UserInfoViewController: UIViewController {
                     self.add(child: UserInfoHeaderViewController(user: user), to: self.headerView)
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                self.presentGFAlertOnMainThread(
+                    title: "Something went wrong",
+                    message: error.localizedDescription
+                )
             }
         }
-    }
-
-    @objc func doneButtonHandler() {
-        dismiss(animated: true)
     }
 
     private func add(child: UIViewController, to container: UIView) {
@@ -37,14 +54,25 @@ final class UserInfoViewController: UIViewController {
     }
 
     private func setupViews() {
-        [headerView].forEach { view.addSubview($0)}
-        headerView.translatesAutoresizingMaskIntoConstraints = false
+        let padding = 20.0
+        middleView.backgroundColor = .systemPink
+        bottomView.backgroundColor = .systemBlue
+        [headerView, middleView, bottomView].forEach {
+            view.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding).isActive = true
+            $0.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding).isActive = true
+        }
 
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 180)
+            headerView.heightAnchor.constraint(equalToConstant: 180),
+
+            middleView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
+            middleView.heightAnchor.constraint(equalToConstant: 180),
+
+            bottomView.topAnchor.constraint(equalTo: middleView.bottomAnchor, constant: padding),
+            bottomView.heightAnchor.constraint(equalToConstant: 180)
         ])
     }
 }

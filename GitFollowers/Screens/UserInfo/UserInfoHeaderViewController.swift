@@ -53,22 +53,18 @@ final class UserInfoHeaderViewController: UIViewController {
     }
 
     private func setupConstraints() {
-        let padding: CGFloat            = 20
         let textImagePadding: CGFloat   = 12
 
         NSLayoutConstraint.activate([
-            avatarImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, 
-                                                     constant: padding),
-            avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                                 constant: padding),
+            avatarImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             avatarImageView.widthAnchor.constraint(equalToConstant: 90),
             avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
 
             usernameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
             usernameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, 
                                                    constant: textImagePadding),
-            usernameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, 
-                                                    constant: -padding),
+            usernameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 
             nameLabel.leadingAnchor.constraint(equalTo: usernameLabel.leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: usernameLabel.trailingAnchor),
