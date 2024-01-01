@@ -2,10 +2,10 @@ import UIKit
 
 final class UserInfoViewController: UIViewController {
 
-    private let headerView = UIView()
-    private let middleView = UIView()
-    private let bottomView = UIView()
-
+    private let headerView  = UIView()
+    private let middleView  = UIView()
+    private let bottomView  = UIView()
+    private let dateLabel   = GFBodyLabel(textAlignment: .center)
     var username: String!
 
     override func viewDidLoad() {
@@ -38,6 +38,7 @@ final class UserInfoViewController: UIViewController {
                     self.add(child: UserInfoHeaderViewController(user: user), to: self.headerView)
                     self.add(child: UserReposViewController(user: user), to: self.middleView)
                     self.add(child: UserFollowersViewController(user: user), to: self.bottomView)
+                    self.dateLabel.text = "GitHub since \(user.createdAt.convertToDisplayFormat())"
                 }
             case .failure(let error):
                 self.presentGFAlertOnMainThread(
@@ -56,8 +57,9 @@ final class UserInfoViewController: UIViewController {
     }
 
     private func setupViews() {
+
         let padding = 20.0
-        [headerView, middleView, bottomView].forEach {
+        [headerView, middleView, bottomView, dateLabel].forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding).isActive = true
@@ -69,10 +71,12 @@ final class UserInfoViewController: UIViewController {
             headerView.heightAnchor.constraint(equalToConstant: 180),
 
             middleView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
-            middleView.heightAnchor.constraint(equalToConstant: 180),
+            middleView.heightAnchor.constraint(equalToConstant: 140),
 
             bottomView.topAnchor.constraint(equalTo: middleView.bottomAnchor, constant: padding),
-            bottomView.heightAnchor.constraint(equalToConstant: 180)
+            bottomView.heightAnchor.constraint(equalToConstant: 140),
+
+            dateLabel.topAnchor.constraint(equalTo: bottomView.bottomAnchor, constant: padding),
         ])
     }
 }
