@@ -36,6 +36,8 @@ final class UserInfoViewController: UIViewController {
             case .success(let user):
                 DispatchQueue.main.async {
                     self.add(child: UserInfoHeaderViewController(user: user), to: self.headerView)
+                    self.add(child: UserReposViewController(user: user), to: self.middleView)
+                    self.add(child: UserFollowersViewController(user: user), to: self.bottomView)
                 }
             case .failure(let error):
                 self.presentGFAlertOnMainThread(
@@ -55,8 +57,6 @@ final class UserInfoViewController: UIViewController {
 
     private func setupViews() {
         let padding = 20.0
-        middleView.backgroundColor = .systemPink
-        bottomView.backgroundColor = .systemBlue
         [headerView, middleView, bottomView].forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false

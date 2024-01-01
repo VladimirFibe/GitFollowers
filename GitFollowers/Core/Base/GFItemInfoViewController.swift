@@ -6,6 +6,17 @@ class GFItemInfoViewController: UIViewController {
     public let rightItem    = GFItemInfoView()
     public let actionButton = GFButton()
 
+    let user: User
+
+    init(user: User) {
+        self.user = user
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -17,10 +28,6 @@ class GFItemInfoViewController: UIViewController {
         view.backgroundColor    = .secondarySystemBackground
         view.addSubview(stackView)
         view.addSubview(actionButton)
-        leftItem.configure(with: .repos, value: 5)
-        rightItem.configure(with: .gists, value: 7)
-        actionButton.backgroundColor = .systemPink
-        actionButton.setTitle("click me", for: [])
         stackView.addArrangedSubview(leftItem)
         stackView.addArrangedSubview(rightItem)
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +42,7 @@ class GFItemInfoViewController: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             actionButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
             actionButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
-            actionButton.topAnchor.constraint(equalTo: stackView.bottomAnchor),
+            actionButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: padding),
             actionButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
